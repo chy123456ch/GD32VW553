@@ -1,12 +1,13 @@
 #include "gd32vw55x.h"
 #include "systick.h"
 #include <stdio.h>
+#include "Bsp_Usart.h"
 
 int main(void)
 {
     // 初始化系统滴答定时器
     systick_config();
-
+    Bsp_Usart_Init(USART0,115200,8,1,0);
     // 开启GPIOC时钟
     RCU_AHB1EN |= (1 << 2);
 
